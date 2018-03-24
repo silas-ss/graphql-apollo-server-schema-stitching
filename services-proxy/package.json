@@ -1,0 +1,26 @@
+{
+  "name": "services-proxy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "services-proxy": "server.js"
+  },
+  "dependencies": {
+    "apollo-fetch": "^0.7.0",
+    "apollo-link-http": "^1.5.3",
+    "apollo-server-express": "^1.3.2",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "graphql": "^0.13.2",
+    "graphql-tools": "^2.23.1",
+    "node-fetch": "^2.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
