@@ -25,6 +25,6 @@ const engine = new ApolloEngine({
 });
 
 engine.listen({
-  port: 5002,
+  port: 5003,
   expressApp: app
 });

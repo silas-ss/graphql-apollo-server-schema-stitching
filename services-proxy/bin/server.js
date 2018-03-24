@@ -1,5 +1,5 @@
 const express = require('express');
-const { graphqlExpress } = require('apollo-server-express');
+const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 const { makeRemoteExecutableSchema, mergeSchemas, introspectSchema } = require('graphql-tools');
 const { createApolloFetch } = require('apollo-fetch');
 const cors = require('cors');
@@ -20,9 +20,9 @@ async function run () {
       });
     };
 
-    const projectSchema = await createRemoteSchema('http://localhost:5000/graphql');
-    const taskSchema = await createRemoteSchema('http://localhost:5001/graphql');
-    const worklogSchema = await createRemoteSchema('http://localhost:5002/graphql');
+    const projectSchema = await createRemoteSchema('http://localhost:5001/graphql');
+    const taskSchema = await createRemoteSchema('http://localhost:5002/graphql');
+    const worklogSchema = await createRemoteSchema('http://localhost:5003/graphql');
     
     const schema = mergeSchemas({ 
       schemas: [projectSchema, taskSchema, worklogSchema, linkSchemaDefs],
@@ -34,8 +34,15 @@ async function run () {
     
     app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
 
-    app.listen(5005);
-    console.log('Escutando em http://locahost:5005/graphql');
+    app.use(
+      '/graphiql',
+      graphiqlExpress({
+        endpointURL: '/graphql',
+      }),
+    );
+
+    app.listen(5000);
+    console.log('Escutando em http://localhost:5000/graphql');
   } catch (e) {
     console.error(e);
   }
