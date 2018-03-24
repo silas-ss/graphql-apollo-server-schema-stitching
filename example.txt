@@ -1,0 +1,37 @@
+mutation {
+  newProject(name: "Projeto Guilherme") {
+    id
+  }
+}
+
+mutation {
+  newTask(task: {title: "Tarefa 1",
+    							description:"Minha primeira tarefa",
+  								projectId: "4d03dd70-86ea-4b11-9420-23f2aaf09e14"}) {
+    id
+  }
+}
+
+mutation {
+  newWorklog(worklog: {description:"Meu primeiro worklog",
+  											hours: 8,
+  											date: "2018-03-22 15:23:45",
+  											taskId: "6a71df78-c60a-428c-a1d0-362f850b72ff"}) {
+    id
+  }
+}
+
+query {
+  findAllProjects {
+    name
+    tasks {
+      title
+      description
+      worklogs {
+        description
+        hours
+        date
+      }
+    }
+  }
+}
