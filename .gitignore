@@ -1,0 +1,56 @@
+# eclipse conf file
+.manager
+.scala_dependencies
+.settings/
+.project
+.classpath
+search/index
+
+# idea
+.idea
+*.iml
+
+# building
+*.class
+target
+null
+tmp*
+temp
+dist
+test-output
+build.log
+
+# other scm
+.svn
+.CVS
+.hg*
+
+#OSX
+target/
+Safari*OLD*
+.DS_Store
+.metadata
+Icon?
+
+#other
+*~
+*.bak
+#*.off
+*.old
+.cache*
+*.iml
+*.ipr
+*.iws
+*.prefs
+*.db
+*.tmproj
+*.vertx
+src/main/frontend/node_modules
+src/main/frontend/node-debug.log
+.mvn
+files/
+tasks-server/projects-service/node_modules
+tasks-server/tasks-service/node_modules
+tasks-server/worklogs-service/node_modules
+tasks-client/node_modules
+services-proxy/node_modules
